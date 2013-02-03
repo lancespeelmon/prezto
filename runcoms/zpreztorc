@@ -156,5 +156,5 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # mvn completion
-maven_plugins=(dependency eclipse javadoc jetty release sakai source tomcat versions)
+maven_plugins=(archetype assembly dependency eclipse javadoc jetty release sakai source tomcat versions)
 zstyle ':completion:*:mvn:*' plugins $maven_plugins
