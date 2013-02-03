@@ -1,0 +1,3 @@
+#!/bin/bash
+
+git pull --no-commit --strategy=recursive -X ours upstream master
