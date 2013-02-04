@@ -1,0 +1,17 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# runcoms/zshrc sources "${ZDOTDIR:-$HOME}/.zshrc-private"
+#
+# Place stuff here that is local to the machine.
+#
+# Authors:
+#   Lance Speelmon <lance@rsmart.com>
+#
+
+###############################################################################
+# private stuff
+###############################################################################
+
+# Customize to your needs...
+
