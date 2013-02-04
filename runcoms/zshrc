@@ -11,3 +11,149 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+###############################################################################
+# general aliases
+###############################################################################
+alias ll='ls -lGh'
+alias l='ls -laGh'
+alias lt='ls -ltGh'
+alias deploy-mvn-artifacts='mvn clean install javadoc:jar source:jar deploy'
+if [[ "$OSTYPE" == darwin* ]]; then
+    alias hibernateon="sudo pmset -a hibernatemode 7"
+    alias hibernateoff="sudo pmset -a hibernatemode 0"
+    alias tomcat_start='./bin/startup.sh;tail -F logs/catalina.out'
+    alias jpda_start='export JPDA_ADDRESS=8000;export JPDA_TRANSPORT=dt_socket;./bin/catalina.sh jpda start;tail -F logs/catalina.out'
+    alias sak2cookie='export JAVA_OPTS="$JAVA_OPTS -Dsakai.cookieName=SAKAI2SESSIONID"'
+fi
+
+###############################################################################
+# AWS EC2 general
+###############################################################################
+if [[ "$OSTYPE" == darwin* ]] && [[ "$HOME" == "/Users/lance" ]]; then
+    export EC2_HOME="/usr/local/ec2-api-tools-1.6.6.0"
+    if [[ -d "$EC2_HOME/bin" ]]; then
+        export PATH="$PATH:$EC2_HOME/bin"
+    fi
+    alias aws='cd /Develop/k2/rsmart/configuration/aws'
+fi
+export AWS_CREDENTIAL_FILE=~/.aws/aws_credential_file
+export EC2_CERT=~/.aws/ec2-keypair.pem
+export EC2_PRIVATE_KEY=~/.aws/private-key.pem
+export EC2_URL=https://ec2.us-west-1.amazonaws.com
+
+###############################################################################
+# compiler options
+###############################################################################
+if [[ "$OSTYPE" == darwin* ]]; then
+    # Use Apple's llvm-gcc-4.2 compiler
+    # export CC=/Developer/usr/bin/llvm-gcc-4.2
+    # export CXX=/Developer/usr/bin/llvm-g++-4.2
+    # export OBJC=/Developer/usr/bin/llvm-gcc-4.2
+    export ARCHFLAGS="-arch $CPUTYPE"
+fi
+
+###############################################################################
+# environment
+###############################################################################
+export LC_CTYPE=en_US.UTF-8
+if [[ "$OSTYPE" == darwin* ]]; then
+    export DISPLAY=:0.0
+fi
+
+###############################################################################
+# Heroku Toolbelt
+###############################################################################
+HERO_BIN_PATH="/usr/local/heroku/bin"
+if [[ -d "$HERO_BIN_PATH" ]]; then
+    export PATH="$HERO_BIN_PATH:$PATH"
+fi
+
+###############################################################################
+# home directory bin directory
+###############################################################################
+HOME_BIN_PATH="$HOME/bin"
+if [[ -d "$HOME_BIN_PATH" ]]; then
+    export PATH="$HOME_BIN_PATH:$PATH"
+fi
+
+###############################################################################
+# java
+###############################################################################
+if [[ "$OSTYPE" == darwin* ]]; then
+    export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.6`
+
+    # java 7 oracle jdk
+    # export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.7`
+
+    export JRE_HOME="$JAVA_HOME"
+    export PATH="$JAVA_HOME/bin:$PATH"
+fi
+
+export JAVA_OPTS="-server \
+-Xms1g \
+-Xmx1g \
+-XX:PermSize=512m \
+-XX:MaxPermSize=512m \
+-XX:NewRatio=3 \
+-XX:+UseParNewGC \
+-XX:+UseConcMarkSweepGC \
+-XX:+CMSParallelRemarkEnabled \
+-XX:MaxTenuringThreshold=0 \
+-XX:-DisableExplicitGC \
+-XX:CMSInitiatingOccupancyFraction=70 \
+-XX:+UseCMSInitiatingOccupancyOnly \
+-XX:+CMSIncrementalMode \
+-XX:+CMSIncrementalPacing \
+-XX:-UseCompressedOops \
+-Djava.awt.headless=true \
+-Dfile.encoding=UTF8 \
+-XX:+PrintCommandLineFlags"
+# -verbose:gc \
+# -XX:+PrintGCDetails \
+# -XX:+PrintGCTimeStamps \
+# -XX:+PrintGCDateStamps \
+# -XX:+PrintTenuringDistribution \
+# -Xloggc:$CATALINA_HOME/logs/gc.log \
+# -XX:+HeapDumpOnOutOfMemoryError \
+# -XX:HeapDumpPath=$CATALINA_HOME \
+
+export CATALINA_OPTS='-Dsun.lang.ClassLoader.allowArraySyntax=true -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false'
+# -Dsun.lang.ClassLoader.allowArraySyntax=true to run Sakai 2 under Java 6
+# -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false for Tomcat 5.5.27+ JSF issues (e.g. OSP)
+
+###############################################################################
+# Maven
+###############################################################################
+if [[ "$OSTYPE" == darwin* ]]; then
+    # export M2_HOME=/usr/local/apache-maven-2.2.1
+    export M2_HOME=/opt/local/share/java/maven3
+    export PATH=$M2_HOME/bin:$PATH
+fi
+
+# export MAVEN_OPTS='-Xms168m -Xmx512m -XX:PermSize=24m -XX:NewSize=64m -Dmaven.test.skip=true -Dmaven.tomcat.home=/Develop/apache-tomcat-5.5.23'
+# export MAVEN_OPTS='-d64 -server -Xmx512m -Dmaven.test.skip=true -Dmaven.tomcat.home=/Develop/apache-tomcat-5.5.26 -Dcom.sun.management.jmxremote -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=30303,server=y,suspend=n'
+export MAVEN_OPTS='-Xmx1g -XX:MaxPermSize=512m'
+# export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
+
+###############################################################################
+# mysql
+###############################################################################
+MYSQL_BIN_PATH="/opt/local/lib/mysql51/bin"
+if [[ "$OSTYPE" == darwin* ]] && [[ -d "$MYSQL_BIN_PATH" ]]; then
+    export PATH="$MYSQL_BIN_PATH:$PATH"
+fi
+
+###############################################################################
+# common aliases
+###############################################################################
+alias md='mkdir -p'
+
+setopt nobeep # workaround for visual beeping prezto
+
+###############################################################################
+# lastly load machine local (i.e. private) .zshrc-private
+###############################################################################
+if [[ -s "${ZDOTDIR:-$HOME}/.zshrc-private" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zshrc-private"
+fi
