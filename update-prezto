@@ -1,3 +1,5 @@
 #!/bin/bash
 
 git pull --no-commit --strategy=recursive -X ours upstream master
+git submodule sync
+git submodule update --init
