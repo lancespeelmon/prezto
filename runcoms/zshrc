@@ -150,7 +150,7 @@ fi
 ###############################################################################
 alias md='mkdir -p'
 
-unsetopt beep # workaround for visual beeping prezto
+unsetopt BEEP # workaround for visual beeping prezto https://github.com/skwp/dotfiles/issues/199
 unsetopt SHARE_HISTORY # don't share history by default
 alias hr='fc -RI' # read in history from other shells only when you need it
 
