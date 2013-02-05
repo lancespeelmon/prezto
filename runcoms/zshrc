@@ -150,7 +150,7 @@ fi
 ###############################################################################
 alias md='mkdir -p'
 
-setopt nobeep # workaround for visual beeping prezto
+unsetopt beep # workaround for visual beeping prezto
 unsetopt SHARE_HISTORY # don't share history by default
 alias hr='fc -RI' # read in history from other shells only when you need it
 
