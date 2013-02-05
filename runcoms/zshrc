@@ -41,6 +41,7 @@ export AWS_CREDENTIAL_FILE=~/.aws/aws_credential_file
 export EC2_CERT=~/.aws/ec2-keypair.pem
 export EC2_PRIVATE_KEY=~/.aws/private-key.pem
 export EC2_URL=https://ec2.us-west-1.amazonaws.com
+alias ii='curl -q http://169.254.169.254/latest/meta-data/instance-id'
 
 ###############################################################################
 # compiler options
@@ -150,6 +151,8 @@ fi
 alias md='mkdir -p'
 
 setopt nobeep # workaround for visual beeping prezto
+unsetopt SHARE_HISTORY # don't share history by default
+alias hr='fc -RI' # read in history from other shells only when you need it
 
 ###############################################################################
 # lastly load machine local (i.e. private) .zshrc-private
