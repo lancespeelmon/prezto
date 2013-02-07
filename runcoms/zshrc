@@ -169,6 +169,7 @@ alias md='mkdir -p'
 unsetopt BEEP # workaround for visual beeping prezto https://github.com/skwp/dotfiles/issues/199
 unsetopt SHARE_HISTORY # don't share history by default
 alias hr='fc -RI' # read in history from other shells only when you need it
+unalias gcc # works around: __rvm_run_compiler:7: command not found: gcc
 
 ###############################################################################
 # lastly load machine local (i.e. private) .zshrc-private
