@@ -18,6 +18,9 @@ fi
 alias ll='ls -lGh'
 alias l='ls -laGh'
 alias lt='ls -ltGh'
+alias md='mkdir -p'
+alias hr='fc -RI' # read in history from other shells only when you need it
+alias pop='popd'
 alias deploy-mvn-artifacts='mvn clean install javadoc:jar source:jar deploy'
 if [[ "$OSTYPE" == darwin* ]]; then
     alias hibernateon="sudo pmset -a hibernatemode 7"
@@ -26,6 +29,14 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias jpda_start='export JPDA_ADDRESS=8000;export JPDA_TRANSPORT=dt_socket;./bin/catalina.sh jpda start;tail -F logs/catalina.out'
     alias sak2cookie='export JAVA_OPTS="$JAVA_OPTS -Dsakai.cookieName=SAKAI2SESSIONID"'
 fi
+
+###############################################################################
+# git
+###############################################################################
+alias st='git status'
+alias pu='git push'
+alias pl='git pull'
+alias gti='git'
 
 ###############################################################################
 # AWS EC2 general
@@ -126,6 +137,7 @@ export CATALINA_OPTS='-Dsun.lang.ClassLoader.allowArraySyntax=true -Dorg.apache.
 ###############################################################################
 # Maven
 ###############################################################################
+# TODO add support for maven via brew: /usr/local/Cellar/maven/3.0.5
 if [[ "$OSTYPE" == darwin* ]]; then
     # export M2_HOME=/usr/local/apache-maven-2.2.1
     export M2_HOME=/opt/local/share/java/maven3
@@ -149,6 +161,7 @@ fi
 ###############################################################################
 # color related stuff
 ###############################################################################
+# run colors from the command line to visualize different skins' colors
 function colors {
     echo -e "\033[0mCOLOR_NC (No color)"
     echo -e "\033[1;37mCOLOR_WHITE\t\033[0;30mCOLOR_BLACK"
@@ -162,14 +175,13 @@ function colors {
 }
 
 ###############################################################################
-# common aliases
+# work arounds
 ###############################################################################
-alias md='mkdir -p'
-
+# override some default prezto behavior
 unsetopt BEEP # workaround for visual beeping prezto https://github.com/skwp/dotfiles/issues/199
 unsetopt SHARE_HISTORY # don't share history by default
-alias hr='fc -RI' # read in history from other shells only when you need it
 unalias gcc # works around: __rvm_run_compiler:7: command not found: gcc
+alias rm='nocorrect rm' # assuming you are more of a power user :)
 
 ###############################################################################
 # lastly load machine local (i.e. private) .zshrc-private
