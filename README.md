@@ -40,13 +40,18 @@ version is 4.3.11.
      complicated setups, it is recommended that you back up your original
      configs and replace them with the provided prezto runcoms.
 
-  4. Set Zsh as your default shell:
+  4. Set up .zshrc-private so you have a place for stuff that does not belong in source control:
+
+        rm "${ZDOTDIR:-$HOME}/.zshrc-private"
+        cp "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshrc-private" "${ZDOTDIR:-$HOME}/.zshrc-private"
+
+  5. Set Zsh as your default shell:
 
      ```console
      chsh -s /bin/zsh
      ```
 
-  5. Open a new Zsh terminal window or tab.
+  6. Open a new Zsh terminal window or tab.
 
 ### Troubleshooting
 
