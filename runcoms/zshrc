@@ -137,10 +137,15 @@ export CATALINA_OPTS='-Dsun.lang.ClassLoader.allowArraySyntax=true -Dorg.apache.
 ###############################################################################
 # Maven
 ###############################################################################
-# TODO add support for maven via brew: /usr/local/Cellar/maven/3.0.5
-if [[ "$OSTYPE" == darwin* ]]; then
-    # export M2_HOME=/usr/local/apache-maven-2.2.1
+# Brew
+if [[ -d '/usr/local/Cellar/maven/3.0.5' ]]; then
+    export M2_HOME='/usr/local/Cellar/maven/3.0.5/libexec'
+fi
+# MacPorts
+if [[ -d '/opt/local/share/java/maven3' ]]; then
     export M2_HOME=/opt/local/share/java/maven3
+fi
+if [[ -n "$M2_HOME" ]]; then
     export PATH=$M2_HOME/bin:$PATH
 fi
 
@@ -156,7 +161,6 @@ MYSQL_BIN_PATH="/opt/local/lib/mysql51/bin"
 if [[ "$OSTYPE" == darwin* ]] && [[ -d "$MYSQL_BIN_PATH" ]]; then
     export PATH="$MYSQL_BIN_PATH:$PATH"
 fi
-
 
 ###############################################################################
 # color related stuff
