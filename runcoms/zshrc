@@ -36,7 +36,7 @@ fi
 alias st='git status'
 alias pu='git push'
 alias pl='git pull'
-alias gti='git'
+alias gti='git' # common typo
 
 ###############################################################################
 # AWS EC2 general
@@ -44,6 +44,7 @@ alias gti='git'
 if [[ "$OSTYPE" == darwin* ]] && [[ "$HOME" == "/Users/lance" ]]; then
     alias aws='cd /Develop/k2/rsmart/configuration/aws'
 fi
+export EC2_URL=https://ec2.us-west-1.amazonaws.com
 export AWS_CREDENTIAL_FILE=~/.ec2/aws_credential_file
 
 ###############################################################################
