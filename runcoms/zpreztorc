@@ -38,6 +38,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'history' \
   'directory' \
+  'ec2-api-tools' \
   'macports' \
   'osx' \
   'rsync' \
