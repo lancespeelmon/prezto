@@ -76,6 +76,16 @@ Aliases
   - `gCt` checks out their changes for unmerged paths.
   - `gCT` checks out their changes for all unmerged paths.
 
+### Conflict
+
+  - `gCl` lists unmerged files.
+  - `gCa` adds unmerged file contents to the index.
+  - `gCe` executes merge-tool on all unmerged file.
+  - `gCo` checks out our changes for unmerged paths.
+  - `gCO` checks out our changes for all unmerged paths.
+  - `gCt` checks out their changes for unmerged paths.
+  - `gCT` checks out their changes for all unmerged paths.
+
 ### Data
 
   - `gd` displays information about files in the index and the work tree.
