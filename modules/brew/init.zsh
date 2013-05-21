@@ -25,9 +25,9 @@ fi
 # Aliases
 #
 
-alias brewc='sudo brew cleanup'
-alias brewi='sudo brew install'
+alias brewc='brew cleanup'
+alias brewi='brew install'
 alias brews='brew search'
-alias brewU='sudo brew update && sudo brew upgrade'
-alias brewu='sudo brew upgrade'
+alias brewU='brew update && brew upgrade'
+alias brewu='brew upgrade'
 alias brewx='brew remove'
