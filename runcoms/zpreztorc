@@ -129,13 +129,12 @@ zstyle ':prezto:module:prompt' theme 'lance'
 
 # Set syntax highlighters.
 # By default, only the main highlighter is enabled.
-zstyle ':prezto:module:syntax-highlighting' highlighters \
-  'main' \
-  'brackets' \
-  'cursor' \
-  'root'
-  # 'pattern' \
-
+# zstyle ':prezto:module:syntax-highlighting' highlighters \
+#   'main' \
+#   'brackets' \
+#   'pattern' \
+#   'cursor' \
+#   'root'
 #
 # Set syntax highlighting styles.
 # zstyle ':prezto:module:syntax-highlighting' styles \
