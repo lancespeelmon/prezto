@@ -105,23 +105,18 @@ export JAVA_OPTS="-server \
 -XX:+UseConcMarkSweepGC \
 -XX:+CMSParallelRemarkEnabled \
 -XX:MaxTenuringThreshold=0 \
--XX:-DisableExplicitGC \
+-XX:+DisableExplicitGC \
 -XX:CMSInitiatingOccupancyFraction=70 \
 -XX:+UseCMSInitiatingOccupancyOnly \
 -XX:+CMSIncrementalMode \
 -XX:+CMSIncrementalPacing \
--XX:-UseCompressedOops \
+-XX:+CMSClassUnloadingEnabled \
+-XX:+UseCompressedOops \
 -Djava.awt.headless=true \
+-Djava.net.preferIPv4Stack=true \
+-Djava.net.preferIPv6Addresses=false \
 -Dfile.encoding=UTF8 \
 -XX:+PrintCommandLineFlags"
-# -verbose:gc \
-# -XX:+PrintGCDetails \
-# -XX:+PrintGCTimeStamps \
-# -XX:+PrintGCDateStamps \
-# -XX:+PrintTenuringDistribution \
-# -Xloggc:$CATALINA_HOME/logs/gc.log \
-# -XX:+HeapDumpOnOutOfMemoryError \
-# -XX:HeapDumpPath=$CATALINA_HOME \
 
 export CATALINA_OPTS='-Dsun.lang.ClassLoader.allowArraySyntax=true -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false'
 # -Dsun.lang.ClassLoader.allowArraySyntax=true to run Sakai 2 under Java 6
