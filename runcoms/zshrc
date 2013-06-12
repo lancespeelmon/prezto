@@ -86,14 +86,16 @@ fi
 # java
 ###############################################################################
 if [[ "$OSTYPE" == darwin* ]]; then
-    export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.6`
+    # export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.6`
+    export JAVA_HOME=`/usr/libexec/java_home -d64`
 
     # java 7 oracle jdk
     # export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.7`
-
-    export JRE_HOME="$JAVA_HOME"
-    export PATH="$JAVA_HOME/bin:$PATH"
+else
+	export JAVA_HOME='/etc/alternatives/java_sdk'
 fi
+export JRE_HOME="$JAVA_HOME"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 export JAVA_OPTS="-server \
 -Xms1g \
