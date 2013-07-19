@@ -136,6 +136,9 @@ export CATALINA_OPTS='-Dsun.lang.ClassLoader.allowArraySyntax=true -Dorg.apache.
 if [[ -d '/usr/local/Cellar/maven/3.0.5' ]]; then
     export M2_HOME='/usr/local/Cellar/maven/3.0.5/libexec'
 fi
+if [[ -d '/usr/local/Cellar/maven/3.1.0' ]]; then
+    export M2_HOME='/usr/local/Cellar/maven/3.1.0/libexec'
+fi
 # MacPorts
 if [[ -d '/opt/local/share/java/maven3' ]]; then
     export M2_HOME=/opt/local/share/java/maven3
