@@ -22,6 +22,7 @@ alias lt='ls -ltGh'
 alias md='mkdir -p'
 alias hr='fc -RI' # read in history from other shells only when you need it
 alias pop='popd'
+alias vi='vim'
 alias deploy-mvn-artifacts='mvn clean install javadoc:jar source:jar deploy'
 if [[ "$OSTYPE" == darwin* ]]; then
     alias hibernateon="sudo pmset -a hibernatemode 7"
