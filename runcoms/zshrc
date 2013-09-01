@@ -21,6 +21,7 @@ alias l='ls -laGh'
 alias lt='ls -ltGh'
 alias md='mkdir -p'
 alias hr='fc -RI' # read in history from other shells only when you need it
+alias hs='pushd ~ && git add .zhistory && git commit -m ".zhistory" && popd' # commit shell history to source control
 alias pop='popd'
 alias vi='vim'
 alias deploy-mvn-artifacts='mvn clean install javadoc:jar source:jar deploy'
