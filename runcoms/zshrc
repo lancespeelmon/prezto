@@ -54,10 +54,10 @@ export AWS_CREDENTIAL_FILE=~/.ec2/aws_credential_file
 # compiler options
 ###############################################################################
 if [[ "$OSTYPE" == darwin* ]]; then
-    # Use Apple's llvm-gcc-4.2 compiler
-    # export CC=/Developer/usr/bin/llvm-gcc-4.2
-    # export CXX=/Developer/usr/bin/llvm-g++-4.2
-    # export OBJC=/Developer/usr/bin/llvm-gcc-4.2
+    # Use Apple's llvm-gcc compiler
+    # export CC=/usr/bin/llvm-gcc
+    # export CXX=/usr/bin/llvm-g++
+    # export OBJC=/usr/bin/llvm-gcc
     export ARCHFLAGS="-arch $CPUTYPE"
 fi
 

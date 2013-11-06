@@ -28,6 +28,6 @@ fi
 alias brewc='brew cleanup'
 alias brewi='brew install'
 alias brews='brew search'
-alias brewU='brew update && brew upgrade && brew cleanup'
+alias brewU='brew update && brew upgrade ; brew cleanup'
 alias brewu='brew upgrade'
 alias brewx='brew remove'
