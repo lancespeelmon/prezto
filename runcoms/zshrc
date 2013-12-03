@@ -185,7 +185,10 @@ function colors {
 unsetopt BEEP # workaround for visual beeping prezto https://github.com/skwp/dotfiles/issues/199
 unsetopt SHARE_HISTORY # don't share history by default
 unalias gcc # works around: __rvm_run_compiler:7: command not found: gcc
-alias rm='nocorrect rm' # assuming you are more of a power user :)
+# I don't like the deaults from runcoms/zshrc
+unalias cp
+unalias mv
+unalias rm
 
 ###############################################################################
 # lastly load machine local (i.e. private) .zshrc-private
