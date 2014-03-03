@@ -89,6 +89,7 @@ fi
 # java
 ###############################################################################
 if [[ "$OSTYPE" == darwin* ]]; then
+    alias psj='ps ax | grep java | grep -v CrashPlanService | grep -v "grep java"'
     export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.6`
     # export JAVA_HOME=`/usr/libexec/java_home -d64`
 
