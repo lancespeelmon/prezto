@@ -37,9 +37,9 @@ zstyle ':prezto:load' pmodule \
   'brew' \
   'osx' \
   'rsync' \
-  'ruby' \
   'spectrum' \
   'utility' \
+  'ruby' \
   'completion' \
   'syntax-highlighting' \
   'history-substring-search' \
