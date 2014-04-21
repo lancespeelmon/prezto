@@ -90,11 +90,10 @@ fi
 ###############################################################################
 if [[ "$OSTYPE" == darwin* ]]; then
     alias psj='ps ax | grep java | grep -v CrashPlanService | grep -v "grep java"'
-    export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.6`
-    # export JAVA_HOME=`/usr/libexec/java_home -d64`
+    # export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.6`
 
     # java 7 oracle jdk
-    # export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.7`
+    export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.7`
 else # assume linux
     if [[ -L  '/etc/alternatives/java_sdk' ]]; then
         export JAVA_HOME='/etc/alternatives/java_sdk'
