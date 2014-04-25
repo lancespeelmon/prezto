@@ -44,7 +44,7 @@ alias gti='git' # common typo
 ###############################################################################
 # AWS EC2 general
 ###############################################################################
-AWS_CREDENTIAL_FILE_PATH="~/.ec2/aws_credential_file"
+AWS_CREDENTIAL_FILE_PATH="$HOME/.ec2/aws_credential_file"
 if [[ -f $AWS_CREDENTIAL_FILE_PATH ]]; then
     export EC2_URL=https://ec2.us-west-1.amazonaws.com
     export AWS_CREDENTIAL_FILE="$AWS_CREDENTIAL_FILE_PATH"
