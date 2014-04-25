@@ -44,11 +44,11 @@ alias gti='git' # common typo
 ###############################################################################
 # AWS EC2 general
 ###############################################################################
-if [[ "$OSTYPE" == darwin* ]] && [[ "$HOME" == "/Users/lance" ]]; then
-    alias aws='cd /Develop/k2/rsmart/configuration/aws'
+AWS_CREDENTIAL_FILE_PATH="~/.ec2/aws_credential_file"
+if [[ -f $AWS_CREDENTIAL_FILE_PATH ]]; then
+    export EC2_URL=https://ec2.us-west-1.amazonaws.com
+    export AWS_CREDENTIAL_FILE="$AWS_CREDENTIAL_FILE_PATH"
 fi
-export EC2_URL=https://ec2.us-west-1.amazonaws.com
-export AWS_CREDENTIAL_FILE=~/.ec2/aws_credential_file
 
 ###############################################################################
 # compiler options
