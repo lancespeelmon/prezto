@@ -135,13 +135,6 @@ export CATALINA_OPTS="-Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=
 ###############################################################################
 # Maven
 ###############################################################################
-# Brew
-if [[ -d '/usr/local/Cellar/maven/3.0.5' ]]; then
-    export M2_HOME='/usr/local/Cellar/maven/3.0.5/libexec'
-fi
-if [[ -d '/usr/local/Cellar/maven/3.1.0' ]]; then
-    export M2_HOME='/usr/local/Cellar/maven/3.1.0/libexec'
-fi
 # MacPorts
 if [[ -d '/opt/local/share/java/maven3' ]]; then
     export M2_HOME=/opt/local/share/java/maven3
