@@ -109,25 +109,26 @@ export JAVA_OPTS="-server \
 -Xmx1g \
 -XX:PermSize=512m \
 -XX:MaxPermSize=512m \
--XX:NewRatio=3 \
--XX:+UseParNewGC \
--XX:+UseConcMarkSweepGC \
--XX:+CMSParallelRemarkEnabled \
--XX:MaxTenuringThreshold=0 \
+-XX:+UseG1GC \
+-XX:MaxGCPauseMillis=200 \
+-XX:InitiatingHeapOccupancyPercent=45 \
+-XX:G1ReservePercent=10 \
 -XX:+DisableExplicitGC \
--XX:CMSInitiatingOccupancyFraction=70 \
--XX:+UseCMSInitiatingOccupancyOnly \
--XX:+CMSIncrementalMode \
--XX:+CMSIncrementalPacing \
--XX:+CMSClassUnloadingEnabled \
 -XX:+UseCompressedOops \
+-XX:+UseStringCache \
+-XX:+OptimizeStringConcat \
 -Djava.awt.headless=true \
 -Djava.net.preferIPv4Stack=true \
 -Djava.net.preferIPv6Addresses=false \
 -Dfile.encoding=UTF8 \
+-Dsun.lang.ClassLoader.allowArraySyntax=true \
+-Djava.util.Arrays.useLegacyMergeSort=true \
+-Djsse.enableSNIExtension=false \
 -XX:+PrintCommandLineFlags"
 
-export CATALINA_OPTS='-Dsun.lang.ClassLoader.allowArraySyntax=true -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false'
+export CATALINA_OPTS="-Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false \
+-Dorg.apache.jasper.compiler.Parser.STRICT_WHITESPACE=false \
+-Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true"
 # -Dsun.lang.ClassLoader.allowArraySyntax=true to run Sakai 2 under Java 6
 # -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false for Tomcat 5.5.27+ JSF issues (e.g. OSP)
 
