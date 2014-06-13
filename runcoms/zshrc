@@ -31,6 +31,8 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias tomcat_start='./bin/startup.sh;tail -F logs/catalina.out'
     alias jpda_start='export JPDA_ADDRESS=8000;export JPDA_TRANSPORT=dt_socket;./bin/catalina.sh jpda start;tail -F logs/catalina.out'
     alias sak2cookie='export JAVA_OPTS="$JAVA_OPTS -Dsakai.cookieName=SAKAI2SESSIONID"'
+    alias j6='source ~/bin/j6'                                                                                                                                   ✱ ◼
+    alias j7='source ~/bin/j7'
 fi
 
 ###############################################################################
