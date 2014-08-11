@@ -24,6 +24,7 @@ alias hr='fc -RI' # read in history from other shells only when you need it
 alias hs='pushd ~ && git add .zhistory && git commit -m ".zhistory" && popd' # commit shell history to source control
 alias pop='popd'
 alias vi='vim'
+alias scp='scp -p'
 alias deploy-mvn-artifacts='mvn clean install javadoc:jar source:jar deploy'
 if [[ "$OSTYPE" == darwin* ]]; then
     alias hibernateon="sudo pmset -a hibernatemode 7"
