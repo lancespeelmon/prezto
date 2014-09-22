@@ -175,6 +175,9 @@ function colors {
     echo -e "\033[1;30mCOLOR_GRAY\t\033[0;37mCOLOR_LIGHT_GRAY"
 }
 
+function absolute_path { echo "$PWD/$1"; }
+alias ap="absolute_path"
+
 ###############################################################################
 # work arounds
 ###############################################################################
