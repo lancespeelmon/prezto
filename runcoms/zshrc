@@ -19,6 +19,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 alias ll='ls -lGh'
 alias l='ls -laGh'
 alias lt='ls -ltGh'
+alias lth='ls -ltGh | head'
 alias md='mkdir -p'
 alias hr='fc -RI' # read in history from other shells only when you need it
 alias hs='pushd ~ && git add .zhistory && git commit -m ".zhistory" && popd' # commit shell history to source control
