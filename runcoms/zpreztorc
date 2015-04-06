@@ -41,6 +41,7 @@ zstyle ':prezto:load' pmodule \
   'ec2-api-tools' \
   'grc' \
   'brew' \
+  'node' \
   'osx' \
   'rsync' \
   'spectrum' \
