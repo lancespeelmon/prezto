@@ -97,7 +97,10 @@ if [[ "$OSTYPE" == darwin* ]]; then
     # export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.6`
 
     # java 7 oracle jdk
-    export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.7`
+    # export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.7`
+
+    # java 8 oracle jdk
+    export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.8`
 else # assume linux
     if [[ -L  '/etc/alternatives/java_sdk' ]]; then
         export JAVA_HOME='/etc/alternatives/java_sdk'
