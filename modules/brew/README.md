@@ -6,12 +6,8 @@ Defines Brew aliases and adds Brew directories to path variables.
 Aliases
 -------
 
-  - `brewc` cleans the files used to build brews.
-  - `brewi` installs a brew.
-  - `brews` searches for a brew.
   - `brewu` upgrades a brew.
   - `brewU` upgrades Brew, the brews collection, and outdated brews.
-  - `brewx` uninstalls a brew.
 
 Authors
 -------
