@@ -25,5 +25,5 @@ fi
 # Aliases
 #
 
-alias brewU='brew doctor && brew update && brew upgrade --all ; brew cleanup'
-alias brewu='brew upgrade --all'
+alias brewU='brew update && brew upgrade --all ; brew cleanup ; brew doctor'
+alias brewu='brew update && brew upgrade --all ; brew cleanup ; brew doctor'
