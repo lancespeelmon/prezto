@@ -164,6 +164,13 @@ if [[ "$OSTYPE" == darwin* ]] && [[ -d "$MYSQL_BIN_PATH" ]]; then
 fi
 
 ###############################################################################
+# python3 homebrew
+###############################################################################
+if [[ -e "/usr/local/bin/python3" ]]; then
+  export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+fi
+
+###############################################################################
 # color related stuff
 ###############################################################################
 # run colors from the command line to visualize different skins' colors
