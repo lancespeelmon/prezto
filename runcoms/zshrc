@@ -26,15 +26,9 @@ alias hs='pushd ~ && git add .zhistory && git commit -m ".zhistory" && popd' # c
 alias pop='popd'
 alias vi='vim'
 alias scp='scp -p'
-alias deploy-mvn-artifacts='mvn clean install javadoc:jar source:jar deploy'
 if [[ "$OSTYPE" == darwin* ]]; then
     alias hibernateon="sudo pmset -a hibernatemode 7"
     alias hibernateoff="sudo pmset -a hibernatemode 0"
-    alias tomcat_start='./bin/startup.sh;tail -F logs/catalina.out'
-    alias jpda_start='export JPDA_ADDRESS=8000;export JPDA_TRANSPORT=dt_socket;./bin/catalina.sh jpda start;tail -F logs/catalina.out'
-    alias sak2cookie='export JAVA_OPTS="$JAVA_OPTS -Dsakai.cookieName=SAKAI2SESSIONID"'
-    alias j6='source ~/bin/j6'
-    alias j7='source ~/bin/j7'
 fi
 
 ###############################################################################
@@ -140,37 +134,6 @@ export PATH="$JAVA_HOME/bin:$PATH"
 # -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false for Tomcat 5.5.27+ JSF issues (e.g. OSP)
 
 ###############################################################################
-# Maven
-###############################################################################
-# MacPorts
-if [[ -d '/opt/local/share/java/maven3' ]]; then
-    export M2_HOME=/opt/local/share/java/maven3
-fi
-if [[ -n "$M2_HOME" ]]; then
-    export PATH=$M2_HOME/bin:$PATH
-fi
-
-# export MAVEN_OPTS='-Xms168m -Xmx512m -XX:PermSize=24m -XX:NewSize=64m -Dmaven.test.skip=true -Dmaven.tomcat.home=/Develop/apache-tomcat-5.5.23'
-# export MAVEN_OPTS='-d64 -server -Xmx512m -Dmaven.test.skip=true -Dmaven.tomcat.home=/Develop/apache-tomcat-5.5.26 -Dcom.sun.management.jmxremote -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=30303,server=y,suspend=n'
-export MAVEN_OPTS='-Xmx1g -XX:MaxPermSize=512m'
-# export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
-
-###############################################################################
-# mysql
-###############################################################################
-MYSQL_BIN_PATH="/opt/local/lib/mysql51/bin"
-if [[ "$OSTYPE" == darwin* ]] && [[ -d "$MYSQL_BIN_PATH" ]]; then
-    export PATH="$MYSQL_BIN_PATH:$PATH"
-fi
-
-###############################################################################
-# python3 homebrew
-###############################################################################
-if [[ -e "/usr/local/bin/python3" ]]; then
-  export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-fi
-
-###############################################################################
 # color related stuff
 ###############################################################################
 # run colors from the command line to visualize different skins' colors
@@ -195,11 +158,6 @@ alias ap="absolute_path"
 # override some default prezto behavior
 unsetopt BEEP # workaround for visual beeping prezto https://github.com/skwp/dotfiles/issues/199
 unsetopt SHARE_HISTORY # don't share history by default
-unalias gcc # works around: __rvm_run_compiler:7: command not found: gcc
-# I don't like the deaults from runcoms/zshrc
-unalias cp
-unalias mv
-unalias rm
 
 ###############################################################################
 # lastly load machine local (i.e. private) .zshrc-private
