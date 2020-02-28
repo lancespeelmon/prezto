@@ -32,13 +32,11 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
-  'archive' \
   'editor' \
   'fasd' \
   'git' \
   'history' \
   'directory' \
-  'ec2-api-tools' \
   'grc' \
   'brew' \
   'node' \
