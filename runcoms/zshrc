@@ -37,6 +37,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
     alias hibernateon="sudo pmset -a hibernatemode 7"
     alias hibernateoff="sudo pmset -a hibernatemode 0"
 fi
+alias config='/usr/bin/env git --git-dir=$HOME/.dotfiles/git-repo/ --work-tree=$HOME'
 
 ###############################################################################
 # git
@@ -101,7 +102,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
     # export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.7`
 
     # java 8 oracle jdk
-    export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.8`
+    export JAVA_HOME=`/usr/libexec/java_home`
 else # assume linux
     if [[ -L  '/etc/alternatives/java_sdk' ]]; then
         export JAVA_HOME='/etc/alternatives/java_sdk'
