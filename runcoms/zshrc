@@ -19,5 +19,160 @@ fi
 
 # Customize to your needs...
 
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+###############################################################################
+# general aliases
+###############################################################################
+alias ll='ls -lGh'
+alias l='ls -laGh'
+alias lt='ls -ltGh'
+alias lth='ls -ltGh | head'
+alias md='mkdir -p'
+alias hr='fc -RI' # read in history from other shells only when you need it
+alias hs='pushd ~ && git add .zhistory && git commit -m ".zhistory" && popd' # commit shell history to source control
+alias pop='popd'
+alias vi='vim'
+alias scp='scp -p'
+if [[ "$OSTYPE" == darwin* ]]; then
+    alias hibernateon="sudo pmset -a hibernatemode 7"
+    alias hibernateoff="sudo pmset -a hibernatemode 0"
+fi
+alias config='/usr/bin/env git --git-dir=$HOME/.dotfiles/git-repo/ --work-tree=$HOME'
+
+###############################################################################
+# git
+###############################################################################
+alias st='git status'
+alias pu='git push'
+alias pl='git pull'
+alias gti='git' # common typo
+
+###############################################################################
+# AWS EC2 general
+###############################################################################
+AWS_CREDENTIAL_FILE_PATH="$HOME/.ec2/aws_credential_file"
+if [[ -f $AWS_CREDENTIAL_FILE_PATH ]]; then
+    export EC2_URL=https://ec2.us-west-1.amazonaws.com
+    export AWS_CREDENTIAL_FILE="$AWS_CREDENTIAL_FILE_PATH"
+fi
+
+###############################################################################
+# compiler options
+###############################################################################
+if [[ "$OSTYPE" == darwin* ]]; then
+    # Use Apple's llvm-gcc compiler
+    # export CC=/usr/bin/llvm-gcc
+    # export CXX=/usr/bin/llvm-g++
+    # export OBJC=/usr/bin/llvm-gcc
+    export ARCHFLAGS="-arch $CPUTYPE"
+fi
+
+###############################################################################
+# environment
+###############################################################################
+export LC_CTYPE=en_US.UTF-8
+if [[ "$OSTYPE" == darwin* ]]; then
+    export DISPLAY=:0.0
+fi
+
+###############################################################################
+# Heroku Toolbelt
+###############################################################################
+HERO_BIN_PATH="/usr/local/heroku/bin"
+if [[ -d "$HERO_BIN_PATH" ]]; then
+    export PATH="$HERO_BIN_PATH:$PATH"
+fi
+
+###############################################################################
+# home directory bin directory
+###############################################################################
+HOME_BIN_PATH="$HOME/bin"
+if [[ -d "$HOME_BIN_PATH" ]]; then
+    export PATH="$HOME_BIN_PATH:$PATH"
+fi
+
+###############################################################################
+# java
+###############################################################################
+if [[ "$OSTYPE" == darwin* ]]; then
+    alias psj='ps ax | grep java | grep -v CrashPlanService | grep -v "grep java"'
+    # export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.6`
+
+    # java 7 oracle jdk
+    # export JAVA_HOME=`/usr/libexec/java_home -d64 -v 1.7`
+
+    # java 8 oracle jdk
+    export JAVA_HOME=`/usr/libexec/java_home`
+else # assume linux
+    if [[ -L  '/etc/alternatives/java_sdk' ]]; then
+        export JAVA_HOME='/etc/alternatives/java_sdk'
+    else
+        export JAVA_HOME='/etc/alternatives/jre'
+    fi
+fi
+export JRE_HOME="$JAVA_HOME"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# export JAVA_OPTS="-server \
+# -Xms1g \
+# -Xmx1g \
+# -XX:PermSize=512m \
+# -XX:MaxPermSize=512m \
+# -XX:+UseG1GC \
+# -XX:MaxGCPauseMillis=200 \
+# -XX:InitiatingHeapOccupancyPercent=45 \
+# -XX:G1ReservePercent=10 \
+# -XX:+DisableExplicitGC \
+# -XX:+UseCompressedOops \
+# -XX:+UseStringCache \
+# -XX:+OptimizeStringConcat \
+# -Djava.awt.headless=true \
+# -Djava.net.preferIPv4Stack=true \
+# -Djava.net.preferIPv6Addresses=false \
+# -Dfile.encoding=UTF8 \
+# -Dsun.lang.ClassLoader.allowArraySyntax=true \
+# -Djava.util.Arrays.useLegacyMergeSort=true \
+# -Djsse.enableSNIExtension=false \
+# -XX:+PrintCommandLineFlags"
+
+# export CATALINA_OPTS="-Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false \
+# -Dorg.apache.jasper.compiler.Parser.STRICT_WHITESPACE=false \
+# -Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true"
+# -Dsun.lang.ClassLoader.allowArraySyntax=true to run Sakai 2 under Java 6
+# -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false for Tomcat 5.5.27+ JSF issues (e.g. OSP)
+
+###############################################################################
+# color related stuff
+###############################################################################
+# run colors from the command line to visualize different skins' colors
+function colors {
+    echo -e "\033[0mCOLOR_NC (No color)"
+    echo -e "\033[1;37mCOLOR_WHITE\t\033[0;30mCOLOR_BLACK"
+    echo -e "\033[0;34mCOLOR_BLUE\t\033[1;34mCOLOR_LIGHT_BLUE"
+    echo -e "\033[0;32mCOLOR_GREEN\t\033[1;32mCOLOR_LIGHT_GREEN"
+    echo -e "\033[0;36mCOLOR_CYAN\t\033[1;36mCOLOR_LIGHT_CYAN"
+    echo -e "\033[0;31mCOLOR_RED\t\033[1;31mCOLOR_LIGHT_RED"
+    echo -e "\033[0;35mCOLOR_PURPLE\t\033[1;35mCOLOR_LIGHT_PURPLE"
+    echo -e "\033[0;33mCOLOR_YELLOW\t\033[1;33mCOLOR_LIGHT_YELLOW"
+    echo -e "\033[1;30mCOLOR_GRAY\t\033[0;37mCOLOR_LIGHT_GRAY"
+}
+
+function absolute_path { echo "$PWD/$1"; }
+alias ap="absolute_path"
+
+###############################################################################
+# work arounds
+###############################################################################
+# override some default prezto behavior
+unsetopt BEEP # workaround for visual beeping prezto https://github.com/skwp/dotfiles/issues/199
+unsetopt SHARE_HISTORY # don't share history by default
+
+###############################################################################
+# lastly load machine local (i.e. private) .zshrc-private
+###############################################################################
+if [[ -s "${ZDOTDIR:-$HOME}/.zshrc-private" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zshrc-private"
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
