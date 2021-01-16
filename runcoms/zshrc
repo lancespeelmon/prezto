@@ -36,6 +36,7 @@ alias scp='scp -p'
 if [[ "$OSTYPE" == darwin* ]]; then
     alias hibernateon="sudo pmset -a hibernatemode 7"
     alias hibernateoff="sudo pmset -a hibernatemode 0"
+    alias brewU='brew update && brew upgrade && brew cleanup && brew doctor'
 fi
 alias config='/usr/bin/env git --git-dir=$HOME/.dotfiles/git-repo/ --work-tree=$HOME'
 
